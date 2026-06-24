@@ -40,47 +40,15 @@ Across these scripts, I focus on:
 
 ---
 
-## 📝 Detailed Solutions & Walkthroughs
+## 📝 Interactive Assignment Directory
 
-### Question 1: Top 20 Completed Orders by Value
+### 📅 Week 1: Advanced SQL for Modern Data Engineering
 
-#### Business Context & Objective
-The commercial team required a quick look at Voltkart's biggest transactions, pulling the top 20 completed orders alongside customer and sales representative details.
+Click on any question to view its dedicated architectural write-up or to jump directly into its production T-SQL script.
 
-#### My Engineering Approach & Design Decisions
-While the baseline hint suggests using standard `INNER JOIN`s across the schema, I deliberately chose a more robust and defensive engineering pattern using a **Common Table Expression (CTE)** and **`LEFT JOIN`s**:
-
-1. **Explicit Predicate Isolation via CTE:** 
-   The core requirement dictates that only orders with an `order_status = 'Completed'` should be considered. Instead of relying blindly on the SQL Server Query Optimizer to handle predicate pushdown, I isolated the business filtering logic into a CTE named `FilteredCompletedOrders`. This ensures that we explicitly prune out all Cancelled or Returned orders *before* any dimension matching occurs.
-
-2. **Defensive Data Integrity using `LEFT JOIN`:** 
-   In production environments, data pipelines can suffer from structural inconsistencies, such as orphaned foreign keys or deleted dimension records. Using an `INNER JOIN` poses a risk: if a high-value order lacks a corresponding record in `dim_customer` or `dim_employee`, that multi-million rupee transaction would completely vanish from the commercial report. 
-   
-   By pairing the CTE with a `LEFT JOIN`, I protected the integrity of the fact table rows. If a data inconsistency exists, the query will still accurately surface the transaction's revenue and ID, outputting a `NULL` for the missing dimension detail rather than dropping critical financial data entirely.
-
-#### T-SQL Solution
-
-```sql
--- Isolate and filter the driving fact data first to explicitly minimize downstream join volume
-WITH FilteredCompletedOrders AS (
-    SELECT 
-        order_id, 
-        order_date, 
-        customer_id, 
-        sales_rep_id, 
-        order_total
-    FROM dbo.fact_orders
-    WHERE order_status = 'Completed'
-)
-SELECT TOP 20 
-    co.order_id, 
-    co.order_date, 
-    c.customer_name, 
-    e.employee_name AS sales_rep_name, 
-    co.order_total 
-FROM FilteredCompletedOrders co
-LEFT JOIN dbo.dim_customer c 
-    ON co.customer_id = c.customer_id 
-LEFT JOIN dbo.dim_employee e 
-    ON co.sales_rep_id = e.employee_id 
-ORDER BY co.order_total DESC;
+| # | Challenge Objective | Technical Write-up | Production T-SQL Script |
+|---|:---|:---:|:---:|
+| **01** | Top 20 Completed Orders by Value | [📄 View Architecture](./documentation/W1_Q1_Writeup.md) | [💻 View Script](./solutions/W1_Q1.sql) |
+| **02** | Inactive Customer Identification | [📄 View Architecture](./documentation/W1_Q2_Writeup.md) | [💻 View Script](./solutions/W1_Q2.sql) |
+| **03** | Top 3 Products Per Category | [📄 View Architecture](./documentation/W1_Q3_Writeup.md) | [💻 View Script](./solutions/W1_Q3.sql) |
+| **04** | MoM Revenue Trend & Momentum | [📄 View Architecture](./documentation/W1_Q4_Writeup.md) | [💻 View Script](./solutions/W1_Q4.sql) |
