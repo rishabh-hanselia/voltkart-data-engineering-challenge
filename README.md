@@ -46,7 +46,7 @@ Across these scripts, I focus on:
 
 Click on any question to view its dedicated architectural write-up or to jump directly into its production T-SQL script.
 
-| Question | Business Objective | Technical Documentation | SQL Script |
+| Question | Business Objective | Technical Documentation | T-SQL Script |
 | :---: | :--- | :---: | :---: |
 | **01** | Top 20 Completed Orders by Value | [📄 View Architecture](./documentation/W1_Q1_Writeup.md) | [💻 View Script](./solutions/W1_Q1.sql) |
 | **02** | Inactive Customer Identification | [📄 View Architecture](./documentation/W1_Q2_Writeup.md) | [💻 View Script](./solutions/W1_Q2.sql) |
