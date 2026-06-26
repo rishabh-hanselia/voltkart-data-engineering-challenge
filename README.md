@@ -46,9 +46,16 @@ Across these scripts, I focus on:
 
 Click on any question to view its dedicated architectural write-up or to jump directly into its production T-SQL script.
 
-| # | Challenge Objective | Technical Write-up | Production T-SQL Script |
-|---|:---|:---:|:---:|
+| Question | Business Objective | Technical Documentation | SQL Script |
+| :---: | :--- | :---: | :---: |
 | **01** | Top 20 Completed Orders by Value | [📄 View Architecture](./documentation/W1_Q1_Writeup.md) | [💻 View Script](./solutions/W1_Q1.sql) |
 | **02** | Inactive Customer Identification | [📄 View Architecture](./documentation/W1_Q2_Writeup.md) | [💻 View Script](./solutions/W1_Q2.sql) |
 | **03** | Top 3 Products Per Category | [📄 View Architecture](./documentation/W1_Q3_Writeup.md) | [💻 View Script](./solutions/W1_Q3.sql) |
 | **04** | MoM Revenue Trend & Momentum | [📄 View Architecture](./documentation/W1_Q4_Writeup.md) | [💻 View Script](./solutions/W1_Q4.sql) |
+| **05** | Customer Segmentation by Value Quartiles | [📄 View Architecture](./documentation/W1_Q5_Writeup.md) | [💻 View Script](./solutions/W1_Q5.sql) |
+| **06** | Product Catalog Hierarchy Traversal | [📄 View Architecture](./documentation/W1_Q6_Writeup.md) | [💻 View Script](./solutions/W1_Q6.sql) |
+| **07** | Organizational Chart Revenue Rollup | [📄 View Architecture](./documentation/W1_Q7_Writeup.md) | [💻 View Script](./solutions/W1_Q7.sql) |
+| **08** | Incremental Data Loading (CDC Pipeline) | [📄 View Architecture](./documentation/W1_Q8_Writeup.md) | [💻 View Script](./solutions/W1_Q8.sql) |
+| **09** | Full CDC Dimension Synchronization | [📄 View Architecture](./documentation/W1_Q9_Writeup.md) | [💻 View Script](./solutions/W1_Q9.sql) |
+| **10** | Query Optimization (Correlated Subquery) | [📄 View Architecture](./documentation/W1_Q10_Writeup.md) | [💻 View Script](./solutions/W1_Q10.sql) |
+| **11** | Customer Loyalty Streaks (Consecutive Months) | [📄 View Architecture](./documentation/W1_Q11_Writeup.md) | [💻 View Script](./solutions/W1_Q11.sql) |
