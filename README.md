@@ -1,4 +1,4 @@
-# Voltkart Advanced SQL Challenge (Session 1)
+# Voltkart Advanced SQL Challenge (Session 1 & 2)
 
 Welcome to my submission for the **Voltkart Challenge**, the first advanced SQL assignment in the **Codebasics Live Data Engineering Bootcamp**. 
 
@@ -36,7 +36,7 @@ Across these scripts, I focus on:
 ## 📂 Repository Layout
 
 * `/solutions` - Individual `.sql` scripts mapping to the 11 assignment questions.
-* `/performance_tuning` - (For Q10) Execution plans and `SET STATISTICS IO` output captures tracking performance before and after query optimization.
+* `/documents` - Individual `.md` write ups mapping to the 11 assignment questions.
 
 ---
 
